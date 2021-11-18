@@ -233,6 +233,10 @@ i::after
       }
   }
   @media screen and (max-width: 500px) {
+    .sidenav{
+      width: 70%;
+      box-shadow: 0 0 100000px rgba(0,0,0,.8);
+    }
     #slideshow-container {
       height:200px;
     }
