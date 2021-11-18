@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Slide.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON Test</title>
+  
+</head>
+<body>
+
+    <div id="container">
+
+    </div>
+</body>
+    
+    <script>
+        var main = document.getElementById("container");
+        fetch('Images.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) 
+        {
+            for (var i = 0; i < data.length; i++) 
+            {
+                var mys = document.createElement("DIV");
+                mys.classList.add("mySlides","fade");
+
+                var img = document.createElement("img");
+                img.src = data[i].src;
+                
+                mys.appendChild(img);
+                main.appendChild(mys);
+            }
+        showSlides();
+        }
+        var slideIndex = 0;
+
+        function showSlides() 
+        {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length)
+                slideIndex = 1
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+</html>
+
