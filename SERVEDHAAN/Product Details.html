@@ -23,6 +23,7 @@
             background-size: 100%;
             background-repeat: no-repeat;
             user-select: none;
+            background-attachment: fixed;
         }
         .topbar{
             display: flex;
@@ -44,17 +45,18 @@
             transform: scale(1.1);
         }
         .container{
-            position: absolute;
-            margin-top: 80px;
-            top:50%;
-            left: 50%;
+            /* position: absolute; */
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
             width: 50%;
-            height: 100%;
+            height: max-content;
+            line-height: 35px;
             padding: 20px;
             border-radius: 20px;
             background-color: white;
-            transform: translate(-50%,-50%);
-            /* box-shadow: 0 0 15px rgba(0,0,0,.9); */
+            /* transform: translate(-50%,-50%); */
+            box-shadow: 0 0 15px rgba(0,0,0,.9);
         }
         input{
             width: 100%;
@@ -77,40 +79,44 @@
             border:1px solid rgb(155, 153, 153);
             border-radius: 20px;
             object-fit: contain;
-            background: url('/images/File\ Upload.svg');
+            /* background: url('/images/File\ Upload.svg');
             background-size: 70%;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
             transition: .3s;
         }
         .imagesbox:hover{
             background-size: 75%;
             box-shadow: 0 0 10px rgba(0,0,0,.7);
         }
+        #image{
+            position: relative;
+            left: 50%;
+            transform:translateX(-50%) ;
+        }
         .location{
             position: relative;
             width: 100%;
-            height: 50%;
+            height: max-content;
             margin-top: 10px;
             padding: 5px 10px;
             border:1px solid rgb(155, 153, 153);
             border-radius: 20px;
-            object-fit: contain;
-            background: url('/images/Location.png');
+            /* background: url('/images/Location.png');
             background-size: 30%;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
             transition: .3s;
         }
         .location:hover{
-            background-size: 35%;
             box-shadow: 0 0 10px rgba(0,0,0,.8);
         }
-        .image{
+        #image{
             position: absolute;
-            top:50%;
             left: 50%;
+            width: 50%;
             transform: translate(-50%,-50%) ;
+            z-index: -1;
         }
         label{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -138,6 +144,10 @@
         @media screen and (min-width: 600px) {
             .container{
                 width: 90%;
+            }
+            #globe{
+                width:40%;
+                height:40%;
             }
         }
         @media screen and (min-width: 900px) {
@@ -171,9 +181,11 @@
             color: white;
             background-color: rgb(117, 6, 151);
             cursor: pointer;
+            transition: .3s;
         }
         #submit:hover{
-            border: 2px solid rgb(33, 1, 43);
+            letter-spacing: 3px;
+            border: 2px solid rgb(77, 6, 99);
         }
         p{
             font-family:Montserrat;
@@ -184,6 +196,12 @@
         span{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             display: inline;
+        }
+        #globe{
+            position: relative;
+            left: 50%;
+            width: 40%;
+            transform:translateX(-50%);
         }
     </style>
 </head>
@@ -202,16 +220,18 @@
             <input type="number" name="year"><br><br>
             <label for="units"><h3>Number of units</h3></label>
             <p>Enter the number of units of the product</p>
-            <input type="number" name="units"> <br><br><br>
+            <input type="number" name="units"> <br><br>
             <h2>Image Upload</h2>
             <div class="imagesbox">
                 <label for="images" id="upimg"><h4 style="color: rgb(53, 52, 52); font-size: 15px;">Upload images </h4></label>
-                <p style="font-size: 11px;line-height: 16px;">Please upload the images of the products with good quality and in different views.</p><!-- <img src="./images/File Upload.svg" alt="FileUpload" id="image" width="80%" height="80%"> -->
+                <p style="font-size: 11px;line-height: 16px;">Please upload the images of the products with good quality and in different views.</p>
+                <img src="./images/File Upload.svg" alt="FileUpload" id="image" >
                 <input type="file" id="file" value="Choose image from device">
-            </div><br><br>
+            </div><br>
             <h2>Location</h2>
             <div class="location">
                 <label for="locate" id="loc"><h4 style="color: rgb(32, 32, 32); font-size: 15px;">Attach Location</h4></label>
+                <img src="images/Location.png" id="globe" alt="location" >
             </div><br>
             <label for="date"><h3>Date</h3></label>
             <p>Enter the date on which you want to donate the products</p>
