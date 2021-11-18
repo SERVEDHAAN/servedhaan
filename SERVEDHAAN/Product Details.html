@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eeca99e7c9.js"></script>
+    <link rel="stylesheet" href="MainStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <title>Upload Details</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url('./images/Background.jpg');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            user-select: none;
+        }
+        .topbar{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 0 10px black;
+        }
+        .back{
+            margin-left: 10px;
+            font-size: 28px;
+            color:rgb(7, 0, 6) ;
+            -webkit-text-stroke: 1px rgb(255, 254, 255);
+            cursor: pointer;
+        }
+        .back:hover{
+            transform: scale(1.1);
+        }
+        .container{
+            position: absolute;
+            margin-top: 80px;
+            top:50%;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: white;
+            transform: translate(-50%,-50%);
+            /* box-shadow: 0 0 15px rgba(0,0,0,.9); */
+        }
+        input{
+            width: 100%;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid #343344;
+            max-width: 100%;
+        }
+        input:focus{
+            outline: none;
+            border-bottom: 2px solid black;
+        }
+        .imagesbox{
+            position: relative;
+            width: 100%;
+            height: 70%;
+            margin-top: 20px;
+            padding: 5px 10px;
+            border:1px solid rgb(155, 153, 153);
+            border-radius: 20px;
+            object-fit: contain;
+            background: url('/images/File\ Upload.svg');
+            background-size: 70%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: .3s;
+        }
+        .imagesbox:hover{
+            background-size: 75%;
+            box-shadow: 0 0 10px rgba(0,0,0,.7);
+        }
+        .location{
+            position: relative;
+            width: 100%;
+            height: 50%;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border:1px solid rgb(155, 153, 153);
+            border-radius: 20px;
+            object-fit: contain;
+            background: url('/images/Location.png');
+            background-size: 30%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: .3s;
+        }
+        .location:hover{
+            background-size: 35%;
+            box-shadow: 0 0 10px rgba(0,0,0,.8);
+        }
+        .image{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%) ;
+        }
+        label{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: poppins;
+        }
+        @media screen and (max-width: 500px) {
+            
+            body{
+                background: url('./images/Background.jpg');
+            }
+            .container{
+                width: 90%;
+                height: 80%;
+                margin-top: 10px;
+            }
+        }
+        #file{
+
+            border-bottom: none;
+        }
+        h2{
+            font-family: poppins;
+            font-size: 19px;
+        }
+        @media screen and (min-width: 600px) {
+            .container{
+                width: 90%;
+            }
+        }
+        @media screen and (min-width: 900px) {
+            
+            .container{
+                width: 70%;
+                height: 100%;
+                padding:20px 50px;
+            }
+            .imagesbox{
+                background-size: 50%;
+            }
+            .imagesbox:hover{
+                background-size: 55%;
+            }
+            .location{
+                background-size: 23%;
+            } 
+            .location:hover{
+                background-size: 27%;
+            }
+        }
+        #submit{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 20px;
+            width: 200px;
+            height: 40px;
+            border-radius: 8px;
+            color: white;
+            background-color: rgb(117, 6, 151);
+            cursor: pointer;
+        }
+        #submit:hover{
+            border: 2px solid rgb(33, 1, 43);
+        }
+        p{
+            font-family:Montserrat;
+            font-size: 13px;
+            color: grey;
+            line-height: 20px;
+        }
+        span{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+      <a href="Donate.html" class="back dot"><i class="fas fa-arrow-left back"></i></a>
+      <h2 style="font-family: poppins;font-size: 25px;color: 232323;margin-left: 10px;">Upload Details</h2>
+    </div>
+    <div class="content">
+        <div class="container">
+            <label for="pdtname"><h3>Product Name </h3></label>
+            <p>Enter the product name</p>
+            <input type="text" id="pdtname" name="product"><br><br>
+            <label for="yop"><h3>Year of purchase (approx.)</h3></label>
+            <p>Enter the year in which the product was purchased first</p>
+            <input type="number" name="year"><br><br>
+            <label for="units"><h3>Number of units</h3></label>
+            <p>Enter the number of units of the product</p>
+            <input type="number" name="units"> <br><br><br>
+            <h2>Image Upload</h2>
+            <div class="imagesbox">
+                <label for="images" id="upimg"><h4 style="color: rgb(53, 52, 52); font-size: 15px;">Upload images </h4></label>
+                <p style="font-size: 11px;line-height: 16px;">Please upload the images of the products with good quality and in different views.</p><!-- <img src="./images/File Upload.svg" alt="FileUpload" id="image" width="80%" height="80%"> -->
+                <input type="file" id="file" value="Choose image from device">
+            </div><br><br>
+            <h2>Location</h2>
+            <div class="location">
+                <label for="locate" id="loc"><h4 style="color: rgb(32, 32, 32); font-size: 15px;">Attach Location</h4></label>
+            </div><br>
+            <label for="date"><h3>Date</h3></label>
+            <p>Enter the date on which you want to donate the products</p>
+            <input type="date" id="date" name="date"><br><br>
+            <label for="time"><h3>Timings</h3></label>
+            <p>Enter the timings of your availability for donations</p>
+            <span>from</span><input type="time" name="fromtime" id="fromtime">
+            <span>to</span><input type="time" name="totime" id="totime"><br><br>
+            <label for="phone"><h2>Contact number</h2></label>
+            <p>Please enter the contact number</p>
+            <input type="phone" id="phone" name="phone">
+            <input type="button" value="Submit" id="submit">
+        </div>
+    </div>
+    <script>
+        function imageupload(){
+
+        }
+    </script>
+</body>
+</html>
