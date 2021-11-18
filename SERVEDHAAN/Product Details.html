@@ -90,11 +90,7 @@
             background-size: 75%;
             box-shadow: 0 0 10px rgba(0,0,0,.7);
         }
-        #image{
-            position: relative;
-            left: 50%;
-            transform:translateX(-50%) ;
-        }
+     
         .location{
             position: relative;
             width: 100%;
@@ -111,13 +107,6 @@
         }
         .location:hover{
             box-shadow: 0 0 10px rgba(0,0,0,.8);
-        }
-        #image{
-            position: absolute;
-            left: 50%;
-            width: 50%;
-            transform: translate(-50%,-50%) ;
-            z-index: -1;
         }
         label{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -147,8 +136,8 @@
                 width: 90%;
             }
             #globe{
-                width:40%;
-                height:40%;
+                width:30%;
+                height:30%;
             }
         }
         @media screen and (min-width: 900px) {
@@ -157,18 +146,6 @@
                 width: 70%;
                 height: 100%;
                 padding:20px 50px;
-            }
-            .imagesbox{
-                background-size: 50%;
-            }
-            .imagesbox:hover{
-                background-size: 55%;
-            }
-            .location{
-                background-size: 23%;
-            } 
-            .location:hover{
-                background-size: 27%;
             }
         }
         #submit{
@@ -201,7 +178,13 @@
         #globe{
             position: relative;
             left: 50%;
-            width: 40%;
+            width: 30%;
+            transform:translateX(-50%);
+        }
+        #image{
+            position: relative;
+            left: 50%;
+            width: 50%;
             transform:translateX(-50%);
         }
     </style>
