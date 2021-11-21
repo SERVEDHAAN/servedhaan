@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="RegisterStyles.css">
+    <script src="https://kit.fontawesome.com/eeca99e7c9.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="topbar">
+        <a href="index.html" class="back dot"><i class="fas fa-arrow-left back"></i></a>
+    </div>
+    <div class="image">
+        <img src="images/Donation1.jpg" alt="Donation1" id="donation">
+    </div>
+    <div class="container">
+        <div class="logsign">
+            <button class="loginpage regbtn" onclick="loginbox()"><h2 id="log">Login</h2></button>
+            <div id="line"></div>
+            <button class="signuppage regbtn" onclick="signupbox()"><h2 id="log">Sign Up</h2></button>
+        </div>
+        <!-- LOGIN -->
+        <div class="loginbox box" id="loginbox">
+            <form method="post" autocomplete="off" name="google-sheet">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="Enter email" required><br><br><br>
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" name="Password" placeholder="Enter Password" required><br>
+                <div id="have"><p>Don't have an account? Create account by clicking on <span style="color: rgb(2, 2, 61);text-decoration: underline;cursor: pointer;" onclick="signupbox()">Sign Up</span></p></div>
+                <input type="submit" class="submit" id="loginsubmit" name="submit" onclick="login()" value="Login"/>
+            </form>
+        </div>
+        <!-- SIGN UP -->
+        <div class="signupbox box" id="signupbox" style="display: none;">
+            <form method="post" autocomplete="off" name="google-sheet">
+                <label for="uname">Username</label>
+                <input type="text" id="uname" name="Username" placeholder="Enter username" required><br><br><br>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="Enter email" required><br><br><br>
+                <label for="pwd">Password</label>
+                <input type="password" id="pwd" name="Password" placeholder="Enter Password" required><br><br><br>
+                <!-- <label for="pwd">Confirm Password</label>
+                <input type="password" id="pwd" name="CPassword" placeholder="Enter Confirm Password" required><br> -->
+                <div id="have"><p>Already have an account? Click on <span style="color: rgb(2, 2, 61);text-decoration: underline;cursor: pointer;" onclick="loginbox()">Login</span> </p></div>
+                <input type="submit" class="submit" id="signupsubmit" name="submit" onclick="login()" value="Sign_up"/>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var loginsubmit = document.getElementById("loginsubmit");
+    var signupsubmit = document.getElementById("signupsubmit");
+    function signup(){
+        alert("hjKJKJ");
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwmZJgZnOAeX7DlaShcvAgCHrbLYzIG6Um7SFjOTbglo4amfxmjojlFL8NujyIUgQjcWQ/exec'
+        const form = document.forms['google-sheet']
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("You have successfully signed up."))
+                .catch(error => console.error('Error!', error.message))
+            })
+           ValidateSignUpForm();
+
+    }
+    function login(){
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbze-bJL2_A9y5xzqcsShxiSw-zTZSbFtH9TVPNvNb4wpj-f3w1suxcVAzmlVPFOvHk/exec'
+        const form = document.forms['google-sheet']
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("You have successfully logged in."))
+                .catch(error => console.error('Error!', error.message))
+            })
+           validateForm();
+    }
+    
+    function ValidateSignUpForm(){
+        var uname = document.forms["google-sheet"]["Username"].value;
+        var email = document.forms["google-sheet"]["Email"].value;
+        var pwd = document.forms["google-sheet"]["Password"].value;
+        if (email == "" || email == null || pwd == "" || pwd == null || uname == "" || uname == null) {
+            return false;
+        }
+        else{
+            loggedin();
+        }
+    }
+            function validateForm() {
+                var email = document.forms["google-sheet"]["Email"].value;
+                var pwd = document.forms["google-sheet"]["Password"].value;
+                if (email == "" || email == null || pwd == "" || pwd == null) {
+                    return false;
+                }
+                else{
+                    loggedin();
+                }
+            }
+          function loggedin(){
+              window.open('./Servedhaan.html');
+          }
+          var logb = document.getElementById("loginbox");
+          var sigb = document.getElementById("signupbox");
+          function loginbox(){
+              logb.style.display = "block";
+              sigb.style.display = "none";
+          }
+          function signupbox(){
+              logb.style.display = "none";
+              sigb.style.display = "block";
+          }
+</script>
+</html>
