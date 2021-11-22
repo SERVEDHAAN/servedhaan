@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background: url("images/AckBackground.jpg");  */
+    background: linear-gradient(135deg,rgb(97, 12, 207),rgb(225, 174, 248));
+    background-repeat: no-repeat;
+    height: 100vh;
+    user-select: none;
+}
+
+.topbar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 0 10px black;
+}
+.back{
+    margin-left: 10px;
+    font-size: 28px;
+    color:rgb(7, 0, 6) ;
+    -webkit-text-stroke: 1px rgb(255, 254, 255);
+    cursor: pointer;
+}
+.back:hover{
+    transform: scale(1.1);
+}
+.container{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width:60%;
+    height: 80%;
+    border-radius: 40px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0,0,0,.7);
+}
+.giftbox{
+    width: 100%;
+    height: 100%;
+}
+.congratulations{
+    position: absolute;
+    padding: 20px;
+    bottom: 100px;
+}
+h2{
+    font-family: poppins;
+}
+#home{
+    width: 150px;
+    height:30px;
+    border:none;
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+    cursor: pointer;
+}
+#congrats{
+    font-size: 30px;
+    text-align: center;
+    color: rgb(41, 1, 65);
+}
+#message{
+    text-align:center; 
+    color: rgb(88, 88, 88);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#continue{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    background:linear-gradient(to right,rgb(63, 2, 107),indigo,rgb(131, 75, 172));
+    box-shadow: 0 0 10px indigo;
+    transition: .4s;
+    cursor: pointer;
+}
+#continue:active{
+    letter-spacing: 3px;
+    font-size: 20px;
+    background:linear-gradient(to left,rgb(63, 2, 107),indigo,rgb(131, 75, 172));
+    box-shadow: 0 0 15px indigo;
+}
+#image{
+    max-width: 100%;
+}
+@media screen and (max-width: 500px) {
+    body{
+        background: indigo;
+    }
+    .topbar{
+        background-color: indigo;
+        box-shadow: none;
+        z-index: 10;
+    }
+    .back{                
+        color: white;
+    }
+    .container{
+        margin-top: 0px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 6px rgba(0,0,0,.7);
+
+    }
+    .congratulations{
+        top: 50%;
+    }
+}
+@media screen and (min-width: 500px) {
+    .container{
+        width: 60%;
+    }
+    #continue{
+        bottom: 50px;
+    }
+
+}        
+@media screen and (min-width: 750px) {
+    .container{
+        width: 50%;
+    }
+}
+@media screen and (min-width: 900px) {
+    .container{
+        width: 30%;
+        height: 90%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    body{
+        background: white;
+    }
+    .topbar{
+        box-shadow: 0 0 5px rgba(0,0,0,.7);
+    }
+    .container{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+    }
+    .congratulations{
+        top: 10px;
+        width: 50%;
+        left: 10px;
+    }
+    #congrats{
+        font-size: 50px;
+    }
+    .giftbox{
+    }
+    #image{
+        position: absolute;
+        right: 10px;
+        max-width: 50%;
+    }
+    #continue{
+        top: 40%;
+        left: 25%;
+    }
+}
+
+
+/* CONFETTI STYLES */
+
+@keyframes confetti-slow {
+    0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+    
+    100% { transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg); }
+  }
+  .conf-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background:transparent;
+    display:fixed;
+    top:0px;
+  }
+  
+  .confetti-container {
+    perspective: 700px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .confetti {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    border-radius: 0%;
+      animation: confetti-slow 1.25s linear 1 forwards;
+  }
+  
+  
+ 
