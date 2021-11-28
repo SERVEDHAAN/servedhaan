@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eeca99e7c9.js"></script>
+    <link rel="stylesheet" href="MainStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <title>Shop</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg,rgb(39, 148, 236),rgb(213, 245, 255));
+        }
+        h2{
+            font-family: poppins;
+            font-size: 30px;
+            color: rgb(48, 47, 47);
+        }
+        .container{
+            width: 50%;
+            padding: 10px;
+            background: white;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0,0,0,.4);
+        }
+        .blocks{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .blocks>div{
+            position: relative;
+            background-color: hsla(187, 86%, 78%, 0.8);
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 150px;
+            font-size: 30px;
+            border-radius: 10px;
+            transition: .5s;
+        }
+        .blocks>div:hover{
+            transform: scale(1.01);
+            box-shadow: 0 0 10px rgba(0,0,0);
+        }
+        img{
+            max-height: 100px;
+            max-width: 100px;
+            transform: scale(.7);
+        }
+        span{
+            position: relative;
+            top: -26px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+        }
+        .back{
+            position: absolute;
+            top:10px;
+            left: 10px;
+            font-size: 28px;
+            color:white ;
+            -webkit-text-stroke: 1px rgb(113, 165, 233);
+            cursor: pointer;
+        }
+        @media screen and (max-width: 600px) {
+            body{
+                background: white;
+            }
+            .container{
+                
+            width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="Servedhaan.html" class="back"><i class="fas fa-arrow-left back"></i></a>
+    <div class="container">
+        <h2>Shop</h2>
+        <div class="blocks">
+            <div>
+                <img src="icons//Stationery.png" alt="books" width="100%"><br>
+                <span>Stationery</span>
+            </div>
+            <div>
+                <img src="icons/fashion.png" alt="Clothes" width="100%"><br>
+                <span>Clothes</span>
+            </div>
+            <div>
+                <img src="icons/electronics.png" alt="electronics" width="100%"><br>
+                <span>Electronics</span>
+            </div>
+            <div>
+                <img src="icons/furniture.png" alt="furniture" width="100%"><br>
+                <span>Furniture</span>
+            </div>
+            <div>
+                <img src="icons/Others.png" alt="others" width="100%"><br>
+                <span>Others</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
