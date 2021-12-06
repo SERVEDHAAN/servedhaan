@@ -267,4 +267,8 @@ i::after
     .topcolor{
       height: 45%;
     }
+      
+    .bottomsection{
+      margin-top: 100px;
+    }
   }
